@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!--
+        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
+        Read more here: https://tailwindcss.com/docs/installation 
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- example for dark theme styling when using tailwind cdn -->
+    <style>
+        /*examples for dark/light themes*/
+        .dark .dark\:text-white {
+            color: #fff;
+        }
+        .dark .dark\:bg-gray-800 {
+            background-color: #1f2937;
+        }
+        .light .light\:text-black {
+            color: #000;
+        }
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: minmax(100px, auto) repeat(5, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #03245d;
+        }
+        .calculator input {
+            grid-column: span 4;
+            height: 100px;
+            background-color: #043fb5;
+        }
+        .calculator button {
+            height: 70px;
+            font-size: 2rem;
+            background-color: #cba900;
+            border-radius: 15px;
+        }
+        .calculator .span-2 {
+            grid-column: span 2;
+        }
+        .calculator .operator {
+            background-color: #ed8936;
+        }
+    </style>
+</head>
+
+<body class="dark:text-white light:text-black">
+
+    <!-- your app code goes here -->
+    <div class="calculator">
+        <input type="text" readonly />
+        <button class="operator">C</button>
+        <button class="operator">±</button>
+        <button class="operator">%</button>
+        <button class="operator">÷</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator">×</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator">−</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator">+</button>
+        <button class="span-2">0</button>
+        <button>.</button>
+        <button class="operator equals">=</button>
+    </div>
+
+    <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+
+        ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }        
+
+        const acceptPrivateApiResponse = async (data) => {
+            // process received data here:
+            // console.log(data)
+        }
+
+        // use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // your code here:
+            //sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+
+</html>
